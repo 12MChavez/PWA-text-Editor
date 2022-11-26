@@ -4,4 +4,4 @@ This is a a text editor that runs in the browser. It uses methods for getting an
 
 ## Contributions
 
-- MDN, dev.to
+- MDN, dev.to, https://www.npmjs.com/package/idb#opendb

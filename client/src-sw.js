@@ -48,7 +48,7 @@ registerRoute(
 );
 
 registerRoute(
-  ({ request }) => request.destination === "image",
+  /\.(?:png|gif|jpg|svg|ico)$/,
   new CacheFirst({
     cacheName: "image-cache",
     plugins: [

@@ -24,6 +24,7 @@ module.exports = () => {
         name: "PWA Text Editor",
         short_name: "PWATE",
         description: "This is a PWA text editor.",
+        inject: true,
         background_color: "#d8a48f",
         icons: [
           {
@@ -31,6 +32,8 @@ module.exports = () => {
             sizes: [96, 128, 192, 256, 384, 512],
             //output directory
             destination: path.join("assets", "logos"),
+            ios: true,
+            ios: "startup",
           },
         ],
       }),

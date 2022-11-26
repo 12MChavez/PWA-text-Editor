@@ -21,16 +21,20 @@ export const putDb = async (content) => {
   const db = await openDB("textEditor", 1);
   const transaction = db.transaction(["textEditor"], "readwrite");
 
-  const objStore = transaction.objectStore("content");
-  const request = objStore.add({ key: "content", value: content });
-
   // if request successful
   transaction.oncomplete = function (event) {
-    console.log(`data added to indexedDB: ${request.result}`);
+    console.log("opened indexDB readwrite transaction");
   };
   // if error
   transaction.onerror = function (event) {
     console.log("Error: data not added to indexedDB");
+  };
+
+  const objStore = transaction.objectStore("content");
+  const request = objStore.add({ key: "content", value: content });
+
+  request.onsuccess = (event) => {
+    console.log(`data added to indexedDB: ${request.result}`);
   };
 };
 
