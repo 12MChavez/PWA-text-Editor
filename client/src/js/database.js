@@ -30,7 +30,7 @@ export const putDb = async (content) => {
     console.log("Error: data not added to indexedDB");
   };
 
-  const objStore = transaction.objectStore("content");
+  const objStore = transaction.objectStore("textEditor");
   const request = objStore.add({ key: "content", value: content });
 
   request.onsuccess = (event) => {
@@ -44,7 +44,16 @@ export const getDb = async () => {
   const db = await openDB("textEditor", 1);
   const transaction = db.transaction(["textEditor"], "readonly");
 
-  const objStore = transaction.objectStore("content");
+  // if request successful
+  transaction.oncomplete = function (event) {
+    console.log("opened indexDB read transaction");
+  };
+  // if error
+  transaction.onerror = function (event) {
+    console.log("Error: data not read");
+  };
+
+  const objStore = transaction.objectStore("textEditor");
   const request = objStore.get("content");
 
   // if error
@@ -56,7 +65,7 @@ export const getDb = async () => {
     console.log(`data retrieved from indexedDB: ${request.result}`);
   };
 
-  return request.value;
+  return request;
 };
 
 initdb();

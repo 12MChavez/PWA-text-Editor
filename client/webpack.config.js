@@ -21,11 +21,13 @@ module.exports = () => {
         title: "Text Editor",
       }),
       new WebpackPwaManifest({
-        name: "PWA Text Editor",
-        short_name: "PWATE",
+        name: "Text Editor",
+        short_name: "TE",
         description: "This is a PWA text editor.",
         inject: true,
         background_color: "#d8a48f",
+        start_url: "/",
+        publicPath: "/",
         icons: [
           {
             src: path.resolve("src/images/logo.JPG"),
