@@ -26,14 +26,27 @@ module.exports = () => {
         description: "This is a PWA text editor.",
         inject: true,
         background_color: "#d8a48f",
+        theme_color: "#2e2c2c",
         start_url: "/",
         publicPath: "/",
         icons: [
           {
-            src: path.resolve("src/images/logo.JPG"),
-            sizes: [96, 128, 192, 256, 384, 512],
+            src: path.resolve("src/images/logo.png"),
+            sizes: ["180x180", "192x192", "144x144", "512x512"],
             //output directory
             destination: path.join("assets", "logos"),
+            type: "image/png",
+            purpose: "maskable",
+            ios: true,
+            ios: "startup",
+          },
+          {
+            src: path.resolve("src/images/logo.png"),
+            sizes: ["180x180", "192x192", "144x144", "512x512"],
+            //output directory
+            destination: path.join("assets", "logos"),
+            type: "image/png",
+            purpose: "any",
             ios: true,
             ios: "startup",
           },
