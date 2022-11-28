@@ -22,6 +22,8 @@ Project is created with:
 
 ## App
 
+- [Deployed Link](https://text-editor1122.herokuapp.com/)
+
 - Lighthouse Screenshot
 
   ![Screenshot](./images/lighthouse.JPG)
